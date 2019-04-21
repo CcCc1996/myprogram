@@ -54,6 +54,7 @@ cjx.say()
 cjx.sayagain()
 print("*" * 50)
 
+
 class Teacher():
     name = "dana"
     age = 40
@@ -67,3 +68,42 @@ class Teacher():
 t = Teacher()
 t.say()
 Teacher.sayagain()  # 调用绑定类方法必须使用类名.
+
+print("*" * 50)
+
+# 关于self的案例
+class A():
+    name = "liuying"
+    age = "40"
+    def __init__(self):
+        self.name = "aaaa"
+        self.age = "1000"
+    def say(self):
+        print(self.name)
+        print(self.age)
+
+class B():
+    name = "bbbb"
+    age = "2000"
+a = A()
+a.say()  # 此时，系统会把a作为第一个参数传入函数
+A.say(a) # 此时，self被a代替
+A.say(A) # 同样可以把A作为参数传入
+A.say(B) # 传入的是类B，但B具有同样的name和age属性，所以不会报错
+
+#  以上代码，利用了鸭子模型
+
+# 私有成员案例
+print("*" * 50)
+class Person():
+    name = "liuying"
+    __age = 18
+p = Person()
+print(p.name)
+#  print(p.__age)  # 报错信息为：类中没有age属性
+
+# name mangling技术
+print(Person.__dict__)  # 使用dict命令查询age改名后名称
+print(p._Person__age)  # 此时就能访问到改名后的age属性信息
+p._Person__age = 22   # 还可以修改
+print(p._Person__age)
