@@ -66,4 +66,4 @@ class Teacher():
         print("hello,nice to see you")
 t = Teacher()
 t.say()
-Teacher.sayagain()  # 调用绑定类方法必须使用类名
+Teacher.sayagain()  # 调用绑定类方法必须使用类名.
