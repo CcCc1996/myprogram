@@ -107,3 +107,4 @@ print(Person.__dict__)  # 使用dict命令查询age改名后名称
 print(p._Person__age)  # 此时就能访问到改名后的age属性信息
 p._Person__age = 22   # 还可以修改
 print(p._Person__age)
+
