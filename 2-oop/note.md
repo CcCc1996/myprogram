@@ -95,4 +95,5 @@
             class Person():
                 name = "liuying"   # name是共有成员
                 __age = 18    # age是私有成员
-    - Python的私有是伪私有：是一种name mangling的改名策略
+    - Python的私有是伪私有：是一种name mangling的改名策略。
+    - 可以通过_classname__attributename对私有成员进行访问
