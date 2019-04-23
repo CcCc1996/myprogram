@@ -69,3 +69,10 @@ kaka = Dog()  # 狗写了构造函数，直接调用自身的构造函数
 class Cat(BuruAnimal):
     pass
 meixi = Cat() # 猫没写构造函数，则继续向上查找，遵循就近原则
+
+print("*" *  50)
+class A():
+    pass
+class B(A):
+    pass
+print(B.__mro__)   # __mro__用于查询父子关系的函数
