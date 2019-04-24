@@ -56,7 +56,6 @@ class Person():
     def fdel(self):
         self._age = "NoAge"
     age = property(fget, fset, fdel, "对name进行以下操作")
-
 p1 = Person()
 p1.age = 22.4
 print(p1.age)
