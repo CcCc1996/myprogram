@@ -49,3 +49,55 @@ class B(A):
 b = B("A的名字")
 
 # Mixin案例
+class Person():
+    def eat(self):
+        print("eat")
+    def sleep(self):
+        print("sleep")
+class TeacherMixin():  # 在Mixin写法中，此处不需要添加父类，表示单一的功能
+    def work(self):
+        print("work")
+class StudentMixin():
+    def study(self):
+        print("study")
+class TutorM(Person, TeacherMixin, StudentMixin):
+    pass
+
+tt = TutorM()
+print(TutorM.__mro__)
+
+# issubclass函数实例
+print("*" * 50)
+class A():
+    pass
+class B(A):
+    pass
+class C():
+    pass
+print(issubclass(B, A))
+print(issubclass(C, A))
+print(issubclass(C, object))
+
+# isinstance函数实例
+print("*" * 50)
+class A():
+    pass
+a = A()
+print(isinstance(a, A))
+
+# hasattr函数实例
+print("*" * 50)
+class A():
+    name = "hahaha"
+a = A()
+print(hasattr(a, "name"))
+print(hasattr(a, "age"))
+
+# 使用和help查询setattr函数用法实例
+print("*" * 50)
+help(setattr)
+class A():
+    name = "hahaha"
+setattr(A, "name", "我的名字是cjx")
+a = A()
+print(a.name)
