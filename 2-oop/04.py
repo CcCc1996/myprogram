@@ -49,6 +49,9 @@ print(p1.name)
 # 1. 在用户输入年龄时，可以输入整数，小数，浮点数
 # 2. 内部数据清洗，直接舍去小数，保持整数
 class Person():
+    '''
+这是一个人，一个高尚的，脱离了低级趣味的人。
+    '''
     def fget(self):
         return self._age
     def fset(self, age):
@@ -60,6 +63,35 @@ p1 = Person()
 p1.age = 22.4
 print(p1.age)
 
+# 类的内置属性举例
+print(Person.__dict__)
+print(Person.__doc__)  # 打印这个类的说明文档
 
+# 魔法函数距离举例：
+class A():
+    def __init__(self):
+        print("这是我第一次被自动调用")
+    def __call__(self):
+        print("这是我第二次被自动调用")
+    def __str__(self):
+        return("这是我第三次被自动调用")
+a = A()
+a()  # 此处变量a直接作为函数使用
+print(a)
 
+# __getattr__
+print("*" * 50)
+class A():
+    name = "cjx"
+    age = "22"
+    def __getattr__(self, item):
+        print("没有该属性")
+        print(item)
+a = A()
+print(a.name)
+print(a.addr)
+
+## 作业：为什么会打印第四句话，而第四局话是 None？？？
+
+# __setattr__案例
 
