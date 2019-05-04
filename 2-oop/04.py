@@ -94,4 +94,51 @@ print(a.addr)
 ## 作业：为什么会打印第四句话，而第四局话是 None？？？
 
 # __setattr__案例
+print("*" * 50)
+class Person():
+    def __init__(self):
+        pass
+    def __setattr__(self, name, value):
+        print("设置属性：{0}".format(name))
+        #  self.name = value  该句代码由于不断对成员自身属性进行赋值造成死循环
+        super().__setattr__(name, value)  # 使用其父类对其调用则不会出现死循环
+p = Person()
+print(p.__dict__)
+p.name = 18
 
+# __gt__案例
+class Student():
+    def __init__(self, name):
+        self.name = name
+    def __gt__(self, other):
+        print("哈哈！{0}会比{1}大吗？".format(self, other) )
+        return self.name > other.name
+stu1 = Student(5)
+stu2 = Student(3)
+print(stu1 > stu2)
+
+
+# 三种方法的案例
+print("*" * 50)
+class Person():
+    # 实例方法
+    def eat(self):
+        print(self)
+        print("吃......")
+    # 类方法
+    # 类方法的第一个参数一般命名为cls，区别于self
+    @classmethod
+    def play(cls):
+        print(cls)
+        print("玩...........")
+    # 静态方法
+    # 不需要第一个参数表示自身或类
+    @staticmethod
+    def say():
+        print("说..........")
+yueyue = Person()
+yueyue.eat()   #  因为需要实例化，所以不能用Person直接调用
+Person.play()
+yueyue.play()
+Person.say()
+yueyue.say()

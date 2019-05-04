@@ -67,7 +67,7 @@ class Teacher():
         print("hello,nice to see you")
 t = Teacher()
 t.say()
-Teacher.sayagain()  # 调用绑定类方法必须使用类名.
+Teacher.sayagain()  # 因为括号中没有self，调用绑定类方法必须使用类名.
 
 print("*" * 50)
 
@@ -107,4 +107,3 @@ print(Person.__dict__)  # 使用dict命令查询age改名后名称
 print(p._Person__age)  # 此时就能访问到改名后的age属性信息
 p._Person__age = 22   # 还可以修改
 print(p._Person__age)
-
